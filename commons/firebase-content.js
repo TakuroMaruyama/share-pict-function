@@ -1,15 +1,14 @@
 const fs = require("fs");
-const config = JSON.parse(fs.readFileSync("./config/config.json", "utf8"));
 const firebase = require("firebase-admin");
-const serviceAccount = require("../config/firebase.config.json");
+const config = require("../config/firebase.config.json");
 
 const COL_SHARE_PICT = "share_pict";
 
 exports.addFirestore = (data) => {
   return new Promise((resolve, reject) => {
     firebase.initializeApp({
-      credential: firebase.credential.cert(serviceAccount),
-      databaseURL: "https://share-pict.firebaseio.com",
+      credential: firebase.credential.cert(config.account),
+      databaseURL: config.storage,
     });
     console.log(firebase);
 
