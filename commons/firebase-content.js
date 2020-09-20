@@ -2,7 +2,7 @@ const fs = require("fs");
 const firebase = require("firebase-admin");
 const config = require("../config/firebase.config.json");
 
-const COL_SHARE_PICT = "share_pict";
+const COL_SHARE_PICT = config.collection;
 
 exports.addFirestore = (data) => {
   return new Promise((resolve, reject) => {
